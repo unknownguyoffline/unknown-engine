@@ -1,0 +1,33 @@
+#pragma once
+#include <chrono>
+#include <string>
+
+#define SCOPE_PROFILER() ScopeProfiler __scope_profiler__(__FUNCTION__)
+
+namespace Unk
+{
+	class Timer
+	{
+	public:
+		void Start();
+		float End();
+		float GetDuration();
+		float GetElapsedTime();
+
+	private:
+		decltype(std::chrono::high_resolution_clock::now()) mStart;
+		std::chrono::duration<float> mDuration;
+		bool mRunning = false;
+	};
+
+	class ScopeProfiler
+	{
+	public:
+		ScopeProfiler(const std::string& name);
+		~ScopeProfiler();
+
+	private:
+		Timer mTimer;
+		std::string mName;
+	};
+}
