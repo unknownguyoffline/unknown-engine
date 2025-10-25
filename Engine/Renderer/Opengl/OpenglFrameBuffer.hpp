@@ -1,7 +1,7 @@
 #pragma once
 #include <Renderer/FrameBuffer.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	class OpenglFrameBuffer : public FrameBuffer
 	{

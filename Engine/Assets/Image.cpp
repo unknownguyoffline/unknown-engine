@@ -2,7 +2,7 @@
 #include <ThirdParty/stb/stb_image.h>
 
 
-namespace Unk
+namespace Unknown
 {
 	
 	void Image::Load(const char* filename, int channel)

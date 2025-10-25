@@ -3,7 +3,7 @@
 #include <vector>
 #include <memory>
 
-namespace Unk
+namespace Unknown
 {
 	class LayerStack
 	{

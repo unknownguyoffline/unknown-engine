@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include "Texture.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	class TextureLibrary
 	{

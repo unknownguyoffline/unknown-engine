@@ -2,7 +2,7 @@
 #include <Application.hpp>
 
 
-namespace Unk
+namespace Unknown
 {
 	Mesh System::sQuad;
 	Material System::sCircleMaterial;

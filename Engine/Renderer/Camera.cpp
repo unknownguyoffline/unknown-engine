@@ -1,7 +1,7 @@
 #include "Camera.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	CameraProperty Camera::GetProperty() const
 	{

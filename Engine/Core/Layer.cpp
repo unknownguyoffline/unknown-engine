@@ -1,7 +1,7 @@
 #include "Layer.hpp"
 #include "Application.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	bool Layer::isEnabled()
 	{

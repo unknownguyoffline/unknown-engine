@@ -7,7 +7,7 @@
 #include <entt/entt.hpp>
 #include <Application.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	struct EntityMetadataComponent
 	{

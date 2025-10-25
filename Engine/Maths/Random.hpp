@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <glm/glm.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	class Maths
 	{

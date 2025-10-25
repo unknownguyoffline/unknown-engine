@@ -2,7 +2,7 @@
 #include <unordered_map>
 #include "Shader.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	struct ShaderFile
 	{

@@ -3,7 +3,7 @@
 #include "IndexBuffer.hpp"
 #include "Material.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	struct Mesh
 	{

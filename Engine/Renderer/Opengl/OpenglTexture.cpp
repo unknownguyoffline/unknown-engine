@@ -1,7 +1,7 @@
 #include "OpenglTexture.hpp"
 #include <glad/glad.h>
 
-namespace Unk
+namespace Unknown
 {
 	static GLenum textureFilter[]{ GL_LINEAR, GL_NEAREST };
 

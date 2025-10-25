@@ -1,7 +1,7 @@
 #include "Random.hpp"
 
 
-namespace Unk
+namespace Unknown
 {
 	float Maths::RandomUnitFloat()
 	{

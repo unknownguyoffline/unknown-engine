@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <unordered_map>
 
-namespace Unk
+namespace Unknown
 {
 	class OpenglShader : public  Shader
 	{

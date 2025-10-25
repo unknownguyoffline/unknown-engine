@@ -1,11 +1,11 @@
 #include <Engine.hpp>
 #include <Renderer/TextRenderer.hpp>
 
-class UiDevelopment : public Unk::Application
+class UiDevelopment : public Unknown::Application
 {
-    Unk::Mesh cubeMesh;
-    Unk::Material basicMaterial;
-    Unk::TextRenderer textRenderer;
+    Unknown::Mesh cubeMesh;
+    Unknown::Material basicMaterial;
+    Unknown::TextRenderer textRenderer;
     void OnStart() override;
     void OnRenderUi();
     void OnUpdate(float dt) override;

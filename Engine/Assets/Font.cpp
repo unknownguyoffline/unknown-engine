@@ -4,7 +4,7 @@
 #include <print>
 
 
-namespace Unk
+namespace Unknown
 {
 	void Font::Load(const char* filename, uint32_t pixelSize)
 	{

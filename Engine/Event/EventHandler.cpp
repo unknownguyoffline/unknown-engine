@@ -1,7 +1,7 @@
 #include "EventHandler.hpp"
 #include <cassert>
 
-namespace Unk
+namespace Unknown
 {
 	void EventDispatcher::Subscribe(EventListener& listener)
 	{

@@ -1,7 +1,7 @@
 #pragma once
 #include <Scene/Scene.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	struct System
 	{

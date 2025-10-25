@@ -2,7 +2,7 @@
 #include <string>
 #include <Application.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	const char* basic3DVertexShader = R"(
 #version 450 core

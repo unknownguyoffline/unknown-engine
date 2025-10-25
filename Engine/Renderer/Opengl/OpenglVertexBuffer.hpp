@@ -4,7 +4,7 @@
 #include <Renderer/Types.hpp>
 #include <vector>
 
-namespace Unk
+namespace Unknown
 {
 	class OpenglVertexBuffer : public VertexBuffer
 	{

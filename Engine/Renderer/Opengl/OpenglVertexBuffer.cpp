@@ -2,7 +2,7 @@
 #include <glad/glad.h>
 #include <cassert>
 
-namespace Unk
+namespace Unknown
 {
 	static size_t shaderTypeSize[] =
 	{

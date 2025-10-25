@@ -3,7 +3,7 @@
 #include "FontLibrary.hpp"
 #include "Renderer.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	struct TextVertex
 	{

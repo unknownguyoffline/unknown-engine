@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Unk
+namespace Unknown
 {
 	enum GraphicApi
 	{

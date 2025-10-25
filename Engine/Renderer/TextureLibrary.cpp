@@ -1,6 +1,6 @@
 #include "TextureLibrary.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	void TextureLibrary::Create(const Image& image, const std::string& identifier)
 	{

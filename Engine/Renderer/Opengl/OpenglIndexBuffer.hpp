@@ -2,7 +2,7 @@
 #include <Renderer/IndexBuffer.hpp>
 #include <cstdint>
 
-namespace Unk
+namespace Unknown
 {
 	class OpenglIndexBuffer : public IndexBuffer
 	{

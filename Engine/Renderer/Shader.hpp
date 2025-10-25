@@ -2,7 +2,7 @@
 #include <string>
 #include <Renderer/Types.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	struct ShaderSource
 	{

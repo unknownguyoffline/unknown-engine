@@ -1,7 +1,7 @@
 #pragma once
 #include <stddef.h>
 
-namespace Unk
+namespace Unknown
 {
 	class IndexBuffer
 	{

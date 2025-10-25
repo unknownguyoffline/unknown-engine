@@ -2,7 +2,7 @@
 #include <Utility/Timer.hpp>
 #include "Macro.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	void Application::Initialize()
 	{

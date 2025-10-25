@@ -1,7 +1,7 @@
 #include "FontLibrary.hpp"
 #include <print>
 
-namespace Unk
+namespace Unknown
 {
 	Font& FontLibrary::Load(const char* filename, const char* identifier, uint32_t pixelSize)
 	{

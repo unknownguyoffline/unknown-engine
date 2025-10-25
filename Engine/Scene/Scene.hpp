@@ -3,7 +3,7 @@
 #include "Component.hpp"
 #include <entt/entt.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	template<typename T>
 	class EntityView

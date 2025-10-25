@@ -6,7 +6,7 @@
 #include <Utility/Memory.hpp>
 #include <Utility/Timer.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	struct ApplicationProperty
 	{

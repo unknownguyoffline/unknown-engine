@@ -1,7 +1,7 @@
 #pragma once
 #include <Renderer/Texture.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	class OpenglTexture : public Texture
 	{

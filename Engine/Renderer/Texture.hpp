@@ -2,7 +2,7 @@
 #include <glm/glm.hpp>
 #include <Assets/Image.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	enum TextureFilter
 	{

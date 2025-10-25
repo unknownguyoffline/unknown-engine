@@ -5,7 +5,7 @@
 #include <Renderer/Texture.hpp>
 
 
-namespace Unk
+namespace Unknown
 {
 	struct Glyph
 	{

@@ -7,7 +7,7 @@
 
 #define GET_GLFW_USER_POINTER() *(GlfwUserPointer *)glfwGetWindowUserPointer(window)
 
-namespace Unk
+namespace Unknown
 {
 	Window* Window::Create(const WindowProperty& properties)
 	{

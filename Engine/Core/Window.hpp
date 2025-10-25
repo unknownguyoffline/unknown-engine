@@ -8,7 +8,7 @@
 #include <Renderer/FrameBuffer.hpp>
 #include <Core/Input.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	struct WindowInput
 	{

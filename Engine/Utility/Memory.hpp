@@ -1,6 +1,6 @@
 #include <memory>
 
-namespace Unk
+namespace Unknown
 {
 	template<typename T>
 	using Ref = std::shared_ptr<T>;

@@ -4,7 +4,7 @@
 
 #define SCOPE_PROFILER() ScopeProfiler __scope_profiler__(__FUNCTION__)
 
-namespace Unk
+namespace Unknown
 {
 	class Timer
 	{

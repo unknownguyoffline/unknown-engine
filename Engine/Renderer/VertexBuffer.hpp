@@ -1,7 +1,7 @@
 #pragma once
 #include <Renderer/Types.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	class VertexBuffer
 	{

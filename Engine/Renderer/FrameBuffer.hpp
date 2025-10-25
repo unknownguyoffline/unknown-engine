@@ -2,7 +2,7 @@
 #include <memory>
 #include <Renderer/Texture.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	struct FrameBufferProperty
 	{

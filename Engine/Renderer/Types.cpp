@@ -1,7 +1,7 @@
 #include "Types.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	glm::mat4 Transform::GetMatrix() const
 	{

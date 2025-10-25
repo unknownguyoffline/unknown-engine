@@ -1,7 +1,7 @@
 #include "ShaderLibrary.hpp"
 #include <fstream>
 
-namespace Unk
+namespace Unknown
 {
 	static std::string readFile(const std::string& filename)
 	{

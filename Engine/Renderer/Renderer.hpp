@@ -18,7 +18,7 @@
 #define BASIC_TEXTURE_SHADER "basicTexture"
 #define BASIC_CIRCLE_SHADER "basicCircle"
 
-namespace Unk
+namespace Unknown
 {
 	struct RendererProperty
 	{

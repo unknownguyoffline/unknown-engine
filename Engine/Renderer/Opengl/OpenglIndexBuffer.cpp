@@ -3,7 +3,7 @@
 #include <cassert>
 
 
-namespace Unk
+namespace Unknown
 {
 	IndexBuffer* IndexBuffer::Create(size_t size, void* data)
 	{

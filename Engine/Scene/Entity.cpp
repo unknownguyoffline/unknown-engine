@@ -1,6 +1,6 @@
 #include "Entity.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	entt::entity Entity::GetEntt()
 	{

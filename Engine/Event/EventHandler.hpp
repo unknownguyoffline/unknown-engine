@@ -2,7 +2,7 @@
 #include "EventListener.hpp"
 #include <vector>
 
-namespace Unk
+namespace Unknown
 {
 	class EventDispatcher
 	{

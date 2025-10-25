@@ -4,7 +4,7 @@
 #include <vector>
 
 
-namespace Unk
+namespace Unknown
 {
 	enum ShaderType
 	{

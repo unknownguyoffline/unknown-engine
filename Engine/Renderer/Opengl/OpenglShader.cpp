@@ -7,7 +7,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	Shader* Shader::Create(const ShaderSource& source)
 	{

@@ -1,7 +1,7 @@
 #include "Mesh.hpp"
 #include <print>
 
-namespace Unk
+namespace Unknown
 {
 	Mesh::Mesh(const Mesh& mesh)
 	{

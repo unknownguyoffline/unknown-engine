@@ -1,6 +1,6 @@
 #include "Scene.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	Entity Scene::Create(const char* name)
 	{

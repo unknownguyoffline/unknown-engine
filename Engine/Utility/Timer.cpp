@@ -1,6 +1,6 @@
 #include "Timer.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	void Timer::Start()
 	{

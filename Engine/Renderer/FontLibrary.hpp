@@ -3,7 +3,7 @@
 #include <Assets/Font.hpp>
 #include <string>
 
-namespace Unk
+namespace Unknown
 {
 	class FontLibrary
 	{

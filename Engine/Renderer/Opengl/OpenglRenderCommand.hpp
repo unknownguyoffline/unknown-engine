@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 
 
-namespace Unk
+namespace Unknown
 {
 	class OpenglRenderCommand : public RenderCommand
 	{

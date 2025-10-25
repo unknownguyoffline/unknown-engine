@@ -1,7 +1,7 @@
 #include "Sprite.hpp"
 
 
-namespace Unk
+namespace Unknown
 {
 	void Sprite::Load(const char* filename)
 	{

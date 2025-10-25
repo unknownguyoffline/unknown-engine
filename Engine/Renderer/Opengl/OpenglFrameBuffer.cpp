@@ -2,7 +2,7 @@
 #include "OpenglFrameBuffer.hpp"
 #include <stdio.h>
 
-namespace Unk
+namespace Unknown
 {
 	FrameBuffer* FrameBuffer::Create(const FrameBufferProperty& property)
 	{

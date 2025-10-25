@@ -2,7 +2,7 @@
 #include <entt/entt.hpp>
 #include "Component.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	class Entity
 	{

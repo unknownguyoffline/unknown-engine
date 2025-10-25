@@ -4,7 +4,7 @@
 #include <Assets/Image.hpp>
 #include "Texture.hpp"
 
-namespace Unk
+namespace Unknown
 {
 	struct Sprite
 	{

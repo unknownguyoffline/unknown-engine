@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <Event/EventHandler.hpp>
 
-namespace Unk
+namespace Unknown
 {
 	struct GlfwUserPointer
 	{

@@ -1,7 +1,7 @@
 #include "OpenglRenderCommand.hpp"
 #include <glad/glad.h>
 
-namespace Unk
+namespace Unknown
 {
 	static GLenum openglPrimitives[] =
 	{
