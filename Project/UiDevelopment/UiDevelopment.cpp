@@ -1,30 +1,50 @@
-
 #include "UiDevelopment.hpp"
+#include "freetype/freetype.h"
+#include <Core/Macro.hpp>
 
 using namespace glm;
 
 void UiDevelopment::OnStart()
 {
-    cubeMesh = Unknown::Mesh::CubeMesh();
-    basicMaterial.shader = BASIC_3D_SHADER;
-	textRenderer.Initialize();
-    textRenderer.LoadFont("Cascadia-Regular.ttf", "Cascadia", 1024);
+	FT_Library library;
+	if (FT_Init_FreeType(&library) != 0)
+	{
+		UNK_CLIENT_ERROR("Failed to initialize freetype");
+	}
+
+	FT_Face face;
+	FT_New_Face(library, "C:\Users\Abhishek\Dev\unknown-engine\Project\UiDevelopment\Cascadia-Regular.ttf", 0, &face);
+	FT_Set_Pixel_Sizes(face, 0, 128);
+	FT_Load_Char(face, 'A', FT_LOAD_RENDER);
+
+	rectangle = Unknown::Mesh::QuadMesh();
+	basicMaterial.shader = BASIC_TEXTURE_SHADER;
+
+	Unknown::Image image;
+
+	image.data = face->glyph->bitmap.buffer;
+	image.size.x = face->glyph->bitmap.width;
+	image.size.y = face->glyph->bitmap.rows;
+
+	Unknown::TextureProperty property;
+	property.format = Unknown::R;
+	property.image = image;
+
+	GetRenderer()->CreateTexture(property, "font");
+
+	basicMaterial.texture[0] = "font";
+
 }
 
 void UiDevelopment::OnRenderUi()
 {
-    Unknown::Transform transform;
-	transform.scale.x = -0.5;
-	transform.scale.y = 0.5;
-    textRenderer.RenderText("Button", "Cascadia", transform);
 }
 
 void UiDevelopment::OnUpdate(float dt)
 {
-	GetRenderer()->BeginFrame(vec4(0.5), GetWindow()->GetSize());
-    //GetRenderer()->Submit(cubeMesh, basicMaterial, Unknown::Transform());
-    OnRenderUi();
-    GetRenderer()->EndFrame();
+	GetRenderer()->BeginFrame(vec4(0.1), GetWindow()->GetSize());
+	GetRenderer()->Submit(rectangle, basicMaterial, Unknown::Transform());
+	GetRenderer()->EndFrame();
 }
 
 void UiDevelopment::OnEnd()

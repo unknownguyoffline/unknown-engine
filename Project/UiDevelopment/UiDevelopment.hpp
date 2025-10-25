@@ -3,9 +3,10 @@
 
 class UiDevelopment : public Unknown::Application
 {
-    Unknown::Mesh cubeMesh;
+    Unknown::Mesh rectangle;
     Unknown::Material basicMaterial;
     Unknown::TextRenderer textRenderer;
+
     void OnStart() override;
     void OnRenderUi();
     void OnUpdate(float dt) override;

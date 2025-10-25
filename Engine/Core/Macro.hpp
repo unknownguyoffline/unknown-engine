@@ -27,7 +27,7 @@
         std::print("\n");
 
 #define UNK_CLIENT_LOG(formatedMessage, ...)\
-        std::print("client log: ")\
+        std::print("client log: ");\
         std::print(formatedMessage, __VA_ARGS__);\
         std::print("\n");
 #define UNK_CLIENT_WARN(formatedMessage, ...)\
@@ -35,11 +35,11 @@
         std::print(formatedMessage, __VA_ARGS__);\
         std::print("\n");
 #define UNK_CLIENT_ERROR(formatedMessage, ...)\
-        std::print("client error: ")\
+        std::print("client error: ");\
         std::print(formatedMessage, __VA_ARGS__);\
         std::print("\n");
 #define UNK_CLIENT_FATAL(formatedMessage, ...)\
-        std::print("client fatal: ")\
+        std::print("client fatal: ");\
         std::print(formatedMessage, __VA_ARGS__);\
         std::print("\n");
 #else

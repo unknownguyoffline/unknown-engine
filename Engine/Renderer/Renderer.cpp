@@ -71,15 +71,13 @@ void main()
 
 out vec4 outputColor;
 
-uniform sampler2D texture0;
+uniform sampler2D texture[32];
 
 in vec2 textureCoordinate;
 
 void main()
 {
-	outputColor = vec4(texture(texture0, textureCoordinate * -1.0).r);
-	if(outputColor.r < 0.9)
-		discard;
+	outputColor = vec4(texture(texture[0], textureCoordinate));
 }
 )";
 
