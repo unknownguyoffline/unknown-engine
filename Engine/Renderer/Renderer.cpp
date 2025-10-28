@@ -71,13 +71,13 @@ void main()
 
 out vec4 outputColor;
 
-uniform sampler2D texture[32];
+uniform sampler2D textures[32];
 
 in vec2 textureCoordinate;
 
 void main()
 {
-	outputColor = vec4(texture(texture[0], textureCoordinate));
+	outputColor = vec4(texture(textures[0], textureCoordinate).rgb, 1.0);
 }
 )";
 
@@ -264,14 +264,14 @@ void main()
 		mTextureLibrary.Load(filename, identifier);
 	}
 
-	void Renderer::CreateTexture(const TextureProperty& property, const char* identifier)
+	Ref<Texture> Renderer::CreateTexture(const TextureProperty& property, const char* identifier)
 	{
-		mTextureLibrary.Create(property, identifier);
+		return mTextureLibrary.Create(property, identifier);
 	}
 
-	void Renderer::CreateTexture(Image& image, const char* identifier)
+	Ref<Texture> Renderer::CreateTexture(Image& image, const char* identifier)
 	{
-		mTextureLibrary.Create(image, identifier);
+		return mTextureLibrary.Create(image, identifier);
 	}
 
 	void Renderer::RemoveTexture(const char* identifier)
@@ -279,7 +279,7 @@ void main()
 		mTextureLibrary.Remove(identifier);
 	}
 
-	Texture* Renderer::GetTexture(const char* identifier)
+	Ref<Texture> Renderer::GetTexture(const char* identifier)
 	{
 		return mTextureLibrary.Get(identifier);
 	}

@@ -58,10 +58,10 @@ namespace Unknown
 		Camera GetCamera() const;
 
 		void LoadTexture(const char* filename, const char* identifier);
-		void CreateTexture(const TextureProperty& property, const char* identifier);
-		void CreateTexture(Image& image, const char* identifier);
+		Ref<Texture> CreateTexture(const TextureProperty& property, const char* identifier);
+		Ref<Texture> CreateTexture(Image& image, const char* identifier);
 		void RemoveTexture(const char* identifier);
-		Texture* GetTexture(const char* identifier);
+		Ref<Texture> GetTexture(const char* identifier);
 
 		void LoadShader(const ShaderFile& files, const char* identifier);
 		void CreateShader(const ShaderSource& sources, const char* identifier);

@@ -5,16 +5,15 @@ project(ThirdParty)
 set(FRETYPE_LIBRARY "${PROJECT_SOURCE_DIR}/freetype/libs/freetyped.lib")
 set(FRETYPE_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/freetype/include/")
 
-#add_library(Freetype::Freetype UNKNOWN IMPORTED)
-#set_target_properties(Freetype::Freetype PROPERTIES
-#    IMPORTED_LOCATION "${FREETYPE_LIBRARY}"
-#    INTERFACE_INCLUDE_DIRECTORIES "${FREETYPE_INCLUDE_DIRS}"
-#)
-
+set(MSDFGEN_USE_VCPKG OFF)
+set(MSDFGEN_USE_SKIA OFF)
+set(MSDFGEN_USE_TINYXML2 OFF)
+set(MSDFGEN_DISABLE_SVG ON)
+set(MSDFGEN_BUILD_STANDALONE OFF)
 add_subdirectory(glfw)
 add_subdirectory(glad)
 add_subdirectory(stb)
-#add_subdirectory(msdf-atlas-gen)
+add_subdirectory(msdfgen)
 
 if(UNIX)
 	add_compile_definitions(HAVE_UNISTD_H)

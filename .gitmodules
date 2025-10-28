@@ -7,6 +7,6 @@
 [submodule "Engine/ThirdParty/glm"]
 	path = Engine/ThirdParty/glm
 	url = https://github.com/g-truc/glm.git
-[submodule "Engine/ThirdParty/msdf-atlas-gen"]
-	path = Engine/ThirdParty/msdf-atlas-gen
-	url = https://github.com/Chlumsky/msdf-atlas-gen.git
+[submodule "Engine/ThirdParty/msdfgen"]
+	path = Engine/ThirdParty/msdfgen
+	url = https://github.com/unknownguyoffline/msdfgen.git

@@ -1,38 +1,51 @@
 #include "UiDevelopment.hpp"
-#include "freetype/freetype.h"
 #include <Core/Macro.hpp>
+#include <msdfgen/msdfgen.h>
+#include <msdfgen/msdfgen-ext.h>
+#include <Macro.hpp>
+#include <stb/stb_image_write.h>
 
 using namespace glm;
 
 void UiDevelopment::OnStart()
 {
-	FT_Library library;
-	if (FT_Init_FreeType(&library) != 0)
+	msdfgen::FreetypeHandle* ft = msdfgen::initializeFreetype();
+	if(ft == nullptr)
 	{
 		UNK_CLIENT_ERROR("Failed to initialize freetype");
 	}
+	msdfgen::FontHandle* font = msdfgen::loadFont(ft, "Cascadia-Regular.ttf");
+	if(font == nullptr)
+	{
+		UNK_CLIENT_ERROR("Failed to load font");
+	}
 
-	FT_Face face;
-	FT_New_Face(library, "C:\Users\Abhishek\Dev\unknown-engine\Project\UiDevelopment\Cascadia-Regular.ttf", 0, &face);
-	FT_Set_Pixel_Sizes(face, 0, 128);
-	FT_Load_Char(face, 'A', FT_LOAD_RENDER);
+	msdfgen::Shape shape;
+	msdfgen::loadGlyph(shape, font, 'A', msdfgen::FONT_SCALING_EM_NORMALIZED);
+	shape.normalize();
+	msdfgen::edgeColoringSimple(shape, 3.0);
+	msdfgen::Bitmap<float, 3> msdf(128,128);
+	msdfgen::SDFTransformation t(msdfgen::Projection(128, msdfgen::Vector2(0.125, 0.125)), msdfgen::Range(0.125));
+	msdfgen::generateMSDF(msdf, shape, t);
+	msdfgen::savePng(msdf, "test.png");
 
-	rectangle = Unknown::Mesh::QuadMesh();
-	basicMaterial.shader = BASIC_TEXTURE_SHADER;
-
-	Unknown::Image image;
-
-	image.data = face->glyph->bitmap.buffer;
-	image.size.x = face->glyph->bitmap.width;
-	image.size.y = face->glyph->bitmap.rows;
+	GetRenderer()->LoadShader({"basic.vert", "basic.frag"}, "basic");
 
 	Unknown::TextureProperty property;
-	property.format = Unknown::R;
-	property.image = image;
+	property.image.Load("test.png");
+	property.format = Unknown::RGBA;
+	property.magFilter = Unknown::LINEAR;
+	property.minFilter = Unknown::LINEAR;
+
 
 	GetRenderer()->CreateTexture(property, "font");
 
+	rectangle = Unknown::Mesh::QuadMesh();
+	basicMaterial.shader = "basic";
 	basicMaterial.texture[0] = "font";
+
+
+	
 
 }
 

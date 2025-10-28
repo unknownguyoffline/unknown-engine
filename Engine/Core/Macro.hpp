@@ -9,49 +9,49 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 #if UNK_ENABLE_PRINT_MACROS
-#define UNK_CORE_LOG(formatedMessage, ...)\
+#define UNK_CORE_LOG(...)\
         std::print("core log: ")\
-        std::print(formatedMessage, __VA_ARGS__)\
+        std::print(__VA_ARGS__)\
         std::print("\n");
-#define UNK_CORE_WARN(formatedMessage, ...)\
+#define UNK_CORE_WARN(...)\
         std::print("core warn: ");\
-        std::print(formatedMessage, __VA_ARGS__);\
+        std::print(__VA_ARGS__);\
         std::print("\n");
-#define UNK_CORE_ERROR(formatedMessage, ...)\
+#define UNK_CORE_ERROR(...)\
         std::print("core error: ")\
-        std::print(formatedMessage, __VA_ARGS__);\
+        std::print(__VA_ARGS__);\
         std::print("\n");
-#define UNK_CORE_FATAL(formatedMessage, ...)\
+#define UNK_CORE_FATAL(...)\
         std::print("core fatal: ")\
-        std::print(formatedMessage, __VA_ARGS__);\
+        std::print(f__VA_ARGS__);\
         std::print("\n");
 
-#define UNK_CLIENT_LOG(formatedMessage, ...)\
+#define UNK_CLIENT_LOG(...)\
         std::print("client log: ");\
-        std::print(formatedMessage, __VA_ARGS__);\
+        std::print(__VA_ARGS__);\
         std::print("\n");
-#define UNK_CLIENT_WARN(formatedMessage, ...)\
+#define UNK_CLIENT_WARN(...)\
         std::print("client warn: ");\
-        std::print(formatedMessage, __VA_ARGS__);\
+        std::print(__VA_ARGS__);\
         std::print("\n");
-#define UNK_CLIENT_ERROR(formatedMessage, ...)\
+#define UNK_CLIENT_ERROR(...)\
         std::print("client error: ");\
-        std::print(formatedMessage, __VA_ARGS__);\
+        std::print(__VA_ARGS__);\
         std::print("\n");
-#define UNK_CLIENT_FATAL(formatedMessage, ...)\
+#define UNK_CLIENT_FATAL(...)\
         std::print("client fatal: ");\
-        std::print(formatedMessage, __VA_ARGS__);\
+        std::print(__VA_ARGS__);\
         std::print("\n");
 #else
-#define UNK_CORE_LOG(formatedMessage, ...)
-#define UNK_CORE_WARN(formatedMessage, ...)
-#define UNK_CORE_ERROR(formatedMessage, ...)
-#define UNK_CORE_FATAL(formatedMessage, ...)
+#define UNK_CORE_LOG(...)
+#define UNK_CORE_WARN(...)
+#define UNK_CORE_ERROR(...)
+#define UNK_CORE_FATAL(...)
 
-#define UNK_CLIENT_LOG(formatedMessage, ...)
-#define UNK_CLIENT_WARN(formatedMessage, ...)
-#define UNK_CLIENT_ERROR(formatedMessage, ...)
-#define UNK_CLIENT_FATAL(formatedMessage, ...)
+#define UNK_CLIENT_LOG(...)
+#define UNK_CLIENT_WARN(...)
+#define UNK_CLIENT_ERROR(...)
+#define UNK_CLIENT_FATAL(...)
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
