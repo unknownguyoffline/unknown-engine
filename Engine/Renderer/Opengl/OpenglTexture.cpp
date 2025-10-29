@@ -60,7 +60,7 @@ namespace Unknown
 
 		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
-		glTexImage2D(GL_TEXTURE_2D, 0, format[mProperty.format], mProperty.image.size.x, mProperty.image.size.y, 0, format[mProperty.format], GL_UNSIGNED_BYTE, mProperty.image.data);
+		glTexImage2D(GL_TEXTURE_2D, 0, format[mProperty.image.format], mProperty.image.size.x, mProperty.image.size.y, 0, format[mProperty.image.format], GL_UNSIGNED_BYTE, mProperty.image.data);
 
 		if (mProperty.generateMipmaps)
 			glGenerateMipmap(GL_TEXTURE_2D);
@@ -79,6 +79,6 @@ namespace Unknown
 	{
 		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 		glBindTexture(GL_TEXTURE_2D, mId);
-		glTexSubImage2D(GL_TEXTURE_2D, 0, offset.x, offset.y, image.size.x, image.size.y, mProperty.format, GL_UNSIGNED_BYTE, image.data);
+		glTexSubImage2D(GL_TEXTURE_2D, 0, offset.x, offset.y, image.size.x, image.size.y, mProperty.image.format, GL_UNSIGNED_BYTE, image.data);
 	}
 }

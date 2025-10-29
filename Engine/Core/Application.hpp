@@ -61,5 +61,6 @@ namespace Unknown
 		void MainLoop();
 		void Terminate();
 		void ProcessEvent();
+		void InitializeSystems();
 	};
 }

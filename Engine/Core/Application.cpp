@@ -7,15 +7,9 @@ namespace Unknown
 	void Application::Initialize()
 	{
 		UNK_CORE_ASSERT("Application already created", mInstance != nullptr);
-
 		mTimer.Start();
-
 		OnInitialize();
-
-		mWindow.reset(Window::Create(mProperty.windowProperty));
-		mRenderer.reset(new Renderer(mProperty.rendererProperty));
-		mLayerStack.reset(new LayerStack);
-
+		InitializeSystems();
 		OnStart();
 		mLayerStack->RunOnStart();
 	}
@@ -82,6 +76,13 @@ namespace Unknown
 	void Application::ProcessEvent()
 	{
 		mWindow->ProcessInput();
+	}
+
+	void Application::InitializeSystems()
+	{
+		mWindow.reset(Window::Create(mProperty.windowProperty));
+		mRenderer.reset(new Renderer(mProperty.rendererProperty));
+		mLayerStack.reset(new LayerStack);
 	}
 
 	Application* Application::mInstance = nullptr;

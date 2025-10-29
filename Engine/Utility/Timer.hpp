@@ -2,7 +2,7 @@
 #include <chrono>
 #include <string>
 
-#define SCOPE_PROFILER() ScopeProfiler __scope_profiler__(__FUNCTION__)
+#define UNK_SCOPE_PROFILER() Unknown::ScopeProfiler __scope_profiler__(__FUNCTION__)
 
 namespace Unknown
 {

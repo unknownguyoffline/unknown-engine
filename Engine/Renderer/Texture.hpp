@@ -16,11 +16,6 @@ namespace Unknown
 		MIRROR_REPEAT
 	};
 
-	enum TextureFormat
-	{
-		R, RG, RGB, RGBA
-	};
-
 	struct TextureProperty
 	{
 		int slot = 0;
@@ -29,7 +24,6 @@ namespace Unknown
 		TextureFilter magFilter = NEAREST;
 		TextureWrap wrapS = REPEAT;
 		TextureWrap wrapT = REPEAT;
-		TextureFormat format = RGBA;
 		bool generateMipmaps = true;
 	};
 

@@ -22,11 +22,11 @@ namespace Unknown
 			glyph.advance = mFace->glyph->advance.x;
 			Image image;
 			image.size = glyph.size;
-			image.data = new char[image.size.x * image.size.y];
+			image.data = new unsigned char[image.size.x * image.size.y];
 			memcpy(image.data, mFace->glyph->bitmap.buffer, image.size.x * image.size.y);
 			TextureProperty property;
 			property.image = image;
-			property.format = R;
+			property.image.format = RED;
 			property.magFilter = NEAREST;
 			property.minFilter = NEAREST;
 			property.slot = 0;

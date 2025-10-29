@@ -1,4 +1,5 @@
 #include <print>
+#include <filesystem>
 
 #define UNK_ENABLE_PRINT_MACROS 1
 #define UNK_ENABLE_ASSERT 1
@@ -85,13 +86,13 @@
 #if UNK_ENABLE_FILE_CHECK
 
 #define UNK_CORE_CHECK_FILE_EXIST(filename) \
-        if (!std::filesystem::exists(filname))\
+        if (!std::filesystem::exists(filename))\
         {\
 	        std::println("core error: file not found {}", filename);\
         }
 
 #define UNK_CLIENT_CHECK_FILE_EXIST(filename) \
-        if (!std::filesystem::exists(filname))\
+        if (!std::filesystem::exists(filename))\
         {\
 	        std::println("client error: file not found {}", filename);\
         }

@@ -10,3 +10,12 @@
 [submodule "Engine/ThirdParty/msdfgen"]
 	path = Engine/ThirdParty/msdfgen
 	url = https://github.com/unknownguyoffline/msdfgen.git
+[submodule "Engine/ThirdParty/freetype"]
+	path = Engine/ThirdParty/freetype
+	url = https://github.com/freetype/freetype.git
+[submodule "Engine/ThirdParty/zlib"]
+	path = Engine/ThirdParty/zlib
+	url = https://github.com/madler/zlib.git
+[submodule "Engine/ThirdParty/libpng"]
+	path = Engine/ThirdParty/libpng
+	url = https://github.com/unknownguyoffline/libpng.git

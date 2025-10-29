@@ -1,21 +1,25 @@
 #include "Image.hpp"
 #include <ThirdParty/stb/stb_image.h>
+#include <Macro.hpp>
+#include <stb/stb_image_write.h>
 
 
 namespace Unknown
 {
 	
-	void Image::Load(const char* filename, int channel)
+	void Image::Load(const char* filename, ImageFormat desiredFormat)
 	{
-		FILE* fp = fopen(filename, "r");
-		if (fp == nullptr)
-		{
-			printf("Failed to open file: %s\n", filename);
-			return;
-		}
-		fclose(fp);
-		int width, height;
-		data = stbi_load(filename, &width, &height, nullptr, channel);
+		UNK_CORE_CHECK_FILE_EXIST(filename);
+
+		int width, height, outputChannel;
+		data = stbi_load(filename, &width, &height, &outputChannel, desiredFormat + 1);
 		size = { width, height };
+		format = ImageFormat(outputChannel - 1);
 	}
+
+	void Image::Write(const char* filename)
+	{
+		stbi_write_png(filename, size.x, size.y, format + 1, data, size.x * (format + 1));
+	}
+
 }

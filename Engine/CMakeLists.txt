@@ -30,5 +30,4 @@ add_library(Engine ${sources} "Scene/Scene.cpp" "Scene/Entity.cpp" "Scene/System
 target_link_libraries(Engine glfw)
 target_link_libraries(Engine glad)
 target_link_libraries(Engine stb_image)
-target_link_libraries(Engine freetyped)
 target_include_directories(Engine PUBLIC ${PROJECT_SOURCE_DIR}/Core)

@@ -54,7 +54,10 @@ namespace Unknown
 		{
 			ShaderType type = mLayout[i];
 			glEnableVertexAttribArray(i);
-			glVertexAttribPointer(i, shaderTypeElement[type], openglShaderType[type], GL_FALSE, mStride, (void*)offset);
+			if (type != Int)
+				glVertexAttribPointer(i, shaderTypeElement[type], openglShaderType[type], GL_FALSE, mStride, (void*)offset);
+			else
+				glVertexAttribIPointer(i, shaderTypeElement[type], openglShaderType[type], mStride, (void*)offset);
 			offset += shaderTypeSize[type];
 		}
 	}

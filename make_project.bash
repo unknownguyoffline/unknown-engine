@@ -19,7 +19,8 @@ project(${projectName})
 file(GLOB sources \${PROJECT_SOURCE_DIR}/*.cpp)
 
 add_executable(${projectName} \${sources})
-target_link_libraries(${projectName} Engine)"
+target_link_libraries(${projectName} Engine)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY \"${PROJECT_SOURCE_DIR}\")"
 
 cppHeaderCode="
 #include <Engine.hpp>

@@ -6,6 +6,9 @@ class UiDevelopment : public Unknown::Application
     Unknown::Mesh rectangle;
     Unknown::Material basicMaterial;
     Unknown::TextRenderer textRenderer;
+	Unknown::Mesh mesh;
+
+
 
     void OnStart() override;
     void OnRenderUi();

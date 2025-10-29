@@ -1,6 +1,7 @@
 #include "Renderer.hpp"
 #include <string>
 #include <Application.hpp>
+#include <Macro.hpp>
 
 namespace Unknown
 {
@@ -186,8 +187,9 @@ void main()
 
 		CameraProperty property = mCamera.GetProperty();
 		property.size = size;
-
 		mCamera.SetProperty(property);
+		mCamera.Calculate();
+
 		ClearScreen(color);
 	}
 
@@ -205,25 +207,12 @@ void main()
 		Shader* shader = mShaderLibrary.Get(material.shader);
 		shader->Bind();
 		glm::mat4 model = transform.GetMatrix();
-		glm::mat4 view = glm::mat4(1.0);
-		if (material.shader == "skybox")
-		{
-			view = glm::mat4(glm::mat3(mCamera.GetViewMatrix()));
-
-		}
-		else
-		{
-			view = mCamera.GetViewMatrix();
-		}
+		glm::mat4 view = mCamera.GetViewMatrix();
 		glm::mat4 proj = mCamera.GetProjectionMatrix();
 		glm::vec3 cameraPosition = mCamera.GetProperty().position;
 		shader->SetUniform(Mat4, "modelMatrix", &model);
 		shader->SetUniform(Mat4, "viewMatrix", &view);
 		shader->SetUniform(Mat4, "projectionMatrix", &proj);
-		shader->SetUniform(Vec4, "color", &material.color);
-		shader->SetUniform(Vec3, "cameraPosition", &cameraPosition);
-		float t = Application::GetInstance()->GetTimer().GetElapsedTime();
-		shader->SetUniform(Float, "time", &t);
 
 		for (int i = 0; i < 32; i++)
 		{
@@ -232,10 +221,6 @@ void main()
 				mTextureLibrary.Get(material.texture[i])->Bind(i);
 		}
 
-		for (int i = 0; i < mLightTransforms.size() && i < 255; i++)
-		{
-			shader->SetUniform(Vec3, ("lightPosition[" + std::to_string(i) + "]").c_str(), &mLightTransforms[i]);
-		}
 		mRenderCommand->DrawIndexed(mesh.indices.size());
 	}
 
@@ -286,6 +271,8 @@ void main()
 
 	void Renderer::LoadShader(const ShaderFile& files, const char* identifier)
 	{
+		UNK_CORE_CHECK_FILE_EXIST(files.vertex);
+		UNK_CORE_CHECK_FILE_EXIST(files.fragment);
 		mShaderLibrary.Load(files, identifier);
 	}
 
