@@ -1,42 +1,29 @@
-// Fragment shader (msdf.frag)
 #version 450 core
 
 in vec2 uv;
-out vec4 fragColor;
+out vec4 color;
+uniform sampler2D textures[32];
 
-uniform sampler2D textures[32];   // MSDF atlas
-float uPxRange = 8.0;     // the "range" in pixels encoded into MSDF atlas
+float median(float r, float g, float b) {
+    return max(min(r, g), min(max(r, g), b));
+}
 
-// Robust median of three floats
-float median3(float a, float b, float c) 
-{
-    // stable and branch-friendly
-    return a + b + c - min(min(a,b), c) - max(max(a,b), c);
+float pxRange = 2.0;
+
+float screenPxRange() {
+    vec2 unitRange = vec2(pxRange)/vec2(32.f, 32.f);
+    vec2 screenTexSize = vec2(1.0)/fwidth(uv);
+    return max(0.5*dot(unitRange, screenTexSize), 1.0);
 }
 
 void main() {
-    vec4 uColor = vec4(1.0);
-    // sample msdf (RGB channels hold the signed distance field components)
-    vec3 msdf = texture(textures[0], uv).rgb;
+    vec3 msd = texture(textures[0], uv).rgb;
+    float sd = median(msd.r, msd.g, msd.b);
+    float screenPxDistance = screenPxRange()*(sd - 0.5);
+    float opacity = clamp(screenPxDistance + 0.5, 0.0, 1.0);
 
-    // reconstruct signed distance in normalized [ -0.5..+0.5 ] units:
-    float sd = median3(msdf.r, msdf.g, msdf.b) - 0.5;
-
-    // convert to screen-space pixels (uPxRange = number of pixels represented by +0.5 -> -0.5)
-    float pxDist = sd * uPxRange;
-
-    // compute smoothing width using screen-space derivative of the distance in pixels
-    // fwidth is abs(dFdx)+abs(dFdy) which is appropriate for anti-aliasing boundaries
-    float afwidth = fwidth(pxDist);
-
-    // final alpha using smoothstep; keeps edges crisp and scalable
-    // if afwidth is tiny (very high-res), smoothstep still behaves correctly
-    float alpha = smoothstep(-afwidth, afwidth, pxDist);
-
-    // premultiply color by alpha (recommended) or output as usual depending on blending setup.
-    // Here we assume standard blending: glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
-    fragColor = vec4(uColor.rgb, uColor.a * alpha);
-
-    // optional: discard tiny fragments for performance (uncomment if desired)
-    //if (fragColor.a < 0.01) fragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    if(opacity > 0.01)
+        color = mix(vec4(0), vec4(1.0), opacity);
+    else
+        discard;
 }
