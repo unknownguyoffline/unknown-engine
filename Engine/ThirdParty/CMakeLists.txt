@@ -28,17 +28,9 @@ set(ZLIB_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/zlib)
 
 include_directories(${PROJECT_SOURCE_DIR}/zlib)
 
-add_subdirectory(zlib)
-
-
-
-set(PNG_STATIC ON)
 
 include_directories(${PROJECT_SOURCE_DIR}/libpng)
 include_directories(${CMAKE_BINARY_DIR}/Engine/ThirdParty/libpng)
-
-add_subdirectory(libpng)
-add_subdirectory(msdfgen)
 
 add_subdirectory(glfw)
 add_subdirectory(glad)
