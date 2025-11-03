@@ -11,8 +11,5 @@
 #include <functional>
 #include <Renderer/Camera.hpp>
 #include <memory>
-#include <Renderer/Mesh.hpp>
-#include <Renderer/Sprite.hpp>
-#include <Scene/Scene.hpp>
 #include <Utility/Timer.hpp>
 

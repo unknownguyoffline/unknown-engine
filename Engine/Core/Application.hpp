@@ -1,17 +1,16 @@
 #pragma once
 #include <memory>
 #include <Core/Window.hpp>
-#include <Renderer/Renderer.hpp>
 #include <LayerStack.hpp>
 #include <Utility/Memory.hpp>
 #include <Utility/Timer.hpp>
+#include <Renderer/Renderer2D.hpp>
 
 namespace Unknown
 {
 	struct ApplicationProperty
 	{
 		WindowProperty windowProperty{};
-		RendererProperty rendererProperty{};
 	};
 
 
@@ -25,12 +24,13 @@ namespace Unknown
 		Timer GetTimer();
 		Timer& GetTimerRef();
 		WindowInput GetInput() { return mWindow->GetInput(); }
+
 		ApplicationProperty GetProperty() const { return mProperty; }
 		void SetProperty(const ApplicationProperty& properties) { mProperty = properties; }
 
-		Ref<Window> GetWindow() const { return mWindow; }
-		Ref<Renderer> GetRenderer() const { return mRenderer; }
-		Ref<LayerStack> GetLayerStack() const { return mLayerStack; }
+		Ref<Window> GetWindow() { return mWindow; }
+		Ref<Renderer2D> GetRenderer2D() { return mRenderer2D; }
+		Ref<LayerStack> GetLayerStack() { return mLayerStack; }
 
 
 
@@ -51,7 +51,7 @@ namespace Unknown
 		static Application* mInstance;
 		bool mRunning = true;
 		Ref<Window> mWindow;
-		Ref<Renderer> mRenderer;
+		Ref<Renderer2D> mRenderer2D;
 		Ref<LayerStack> mLayerStack;
 		Timer mTimer;
 

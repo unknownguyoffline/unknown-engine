@@ -81,7 +81,8 @@ namespace Unknown
 	void Application::InitializeSystems()
 	{
 		mWindow.reset(Window::Create(mProperty.windowProperty));
-		mRenderer.reset(new Renderer(mProperty.rendererProperty));
+		mRenderer2D.reset(new Renderer2D());
+		mRenderer2D->Initialize();
 		mLayerStack.reset(new LayerStack);
 	}
 
