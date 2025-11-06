@@ -54,10 +54,12 @@ namespace Unknown
 		{
 			ShaderType type = mLayout[i];
 			glEnableVertexAttribArray(i);
-			if (type != Int)
-				glVertexAttribPointer(i, shaderTypeElement[type], openglShaderType[type], GL_FALSE, mStride, (void*)offset);
-			else
+
+			if (openglShaderType[type] == GL_INT || openglShaderType[type] == GL_UNSIGNED_INT)
 				glVertexAttribIPointer(i, shaderTypeElement[type], openglShaderType[type], mStride, (void*)offset);
+			else
+				glVertexAttribPointer(i, shaderTypeElement[type], openglShaderType[type], GL_FALSE, mStride, (void*)offset);
+
 			offset += shaderTypeSize[type];
 		}
 	}
@@ -96,8 +98,9 @@ namespace Unknown
 		assert(mId != 0);
 		assert(mVaoId != 0);
 
+
 		glDeleteBuffers(1, &mId);
-		glDeleteBuffers(1, &mVaoId);
+		glDeleteVertexArrays(1, &mVaoId);
 		mId = 0;
 		mVaoId = 0;
 	}

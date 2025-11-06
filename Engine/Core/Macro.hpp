@@ -64,7 +64,7 @@
         if ((expression) == false)\
         {\
             std::println("core assert: {} {}", message, #expression);\
-            assert(false);\
+            assert(expression);\
         }
 
 
@@ -72,7 +72,7 @@
         if ((expression) == false)\
         {\
             std::println("client assert: {} {}", message, #expression);\
-            assert(false);\
+            assert(expression);\
         }
 #else
 #define UNK_CORE_ASSERT(message, expression)

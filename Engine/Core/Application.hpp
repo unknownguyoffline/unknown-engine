@@ -8,6 +8,12 @@
 
 namespace Unknown
 {
+	struct Time
+	{
+		float deltaTime;
+		Timer applicationTimer;
+	};
+
 	struct ApplicationProperty
 	{
 		WindowProperty windowProperty{};
@@ -18,32 +24,21 @@ namespace Unknown
 	{
 	public:
 		static Application* GetInstance() { return mInstance; }
-
 		void Close();
-
-		Timer GetTimer();
-		Timer& GetTimerRef();
 		WindowInput GetInput() { return mWindow->GetInput(); }
-
 		ApplicationProperty GetProperty() const { return mProperty; }
 		void SetProperty(const ApplicationProperty& properties) { mProperty = properties; }
-
 		Ref<Window> GetWindow() { return mWindow; }
 		Ref<Renderer2D> GetRenderer2D() { return mRenderer2D; }
 		Ref<LayerStack> GetLayerStack() { return mLayerStack; }
-
-
-
+		const Time& GetTime() const { return mTime; }
 		Application();
 		~Application();
-
 		void Run();
-
-
 	protected:
 		virtual void OnInitialize() {}
 		virtual void OnStart() {}
-		virtual void OnUpdate(float dt) {}
+		virtual void OnUpdate() {}
 		virtual void OnEnd() {}
 
 	private:
@@ -53,11 +48,10 @@ namespace Unknown
 		Ref<Window> mWindow;
 		Ref<Renderer2D> mRenderer2D;
 		Ref<LayerStack> mLayerStack;
-		Timer mTimer;
+		Time mTime;
 
 	private:
 		void Initialize();
-
 		void MainLoop();
 		void Terminate();
 		void ProcessEvent();

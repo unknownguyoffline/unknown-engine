@@ -6,8 +6,7 @@ namespace Unknown
 {
 	void Application::Initialize()
 	{
-		UNK_CORE_ASSERT("Application already created", mInstance != nullptr);
-		mTimer.Start();
+		UNK_CORE_ASSERT("Application not created", mInstance != nullptr);
 		OnInitialize();
 		InitializeSystems();
 		OnStart();
@@ -16,6 +15,7 @@ namespace Unknown
 
 	void Application::Run()
 	{
+		mTime.applicationTimer.Start();
 		Initialize();
 		MainLoop();
 		Terminate();
@@ -23,21 +23,19 @@ namespace Unknown
 
 	void Application::MainLoop()
 	{
-		float dt = 0;
-		Timer frameTimer;
-
+		Timer deltaTimer;
 		while (mRunning)
 		{
-			frameTimer.Start();
-
+			deltaTimer.Start();
 			ProcessEvent();
 			mRunning = !mWindow->GetProperty().closed;
-			OnUpdate(dt);
+			
+			mTime.deltaTime = deltaTimer.GetDuration();
+			OnUpdate();
+
 			mLayerStack->RunOnUpdate();
-
 			mWindow->SwapBuffer();
-
-			dt = frameTimer.End();
+			deltaTimer.End();
 		}
 	}
 
@@ -50,16 +48,6 @@ namespace Unknown
 	void Application::Close()
 	{
 		mRunning = false;
-	}
-
-	Timer& Application::GetTimerRef()
-	{
-		return mTimer;
-	}
-
-	Timer Application::GetTimer()
-	{
-		return mTimer;
 	}
 
 	Application::Application()

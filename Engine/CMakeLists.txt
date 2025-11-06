@@ -25,7 +25,7 @@ file(GLOB sources
 
 add_subdirectory(ThirdParty)
 
-add_library(Engine ${sources} )
+add_library(Engine ${sources})
 target_link_libraries(Engine glfw)
 target_link_libraries(Engine glad)
 target_link_libraries(Engine stb_image)

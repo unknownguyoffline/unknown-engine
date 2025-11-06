@@ -14,7 +14,7 @@ namespace Unknown
 		int width, height, outputChannel;
 		data = stbi_load(filename, &width, &height, &outputChannel, desiredFormat + 1);
 		size = { width, height };
-		format = ImageFormat(outputChannel - 1);
+		format = desiredFormat;
 	}
 
 	void Image::Write(const char* filename)
